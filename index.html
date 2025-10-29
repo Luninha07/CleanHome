@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CleanHome - Serviços Domésticos Premium</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Animado -->
+    <div class="background-animation">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
+
+    <!-- Tela de Login -->
+    <div id="login-screen" class="login-screen">
+        <div class="login-container">
+            <div class="login-card">
+                <div class="login-header">
+                    <div class="brand">
+                        <div class="logo">
+                            <div class="logo-glow"></div>
+                            <div class="logo-icon">🏠</div>
+                        </div>
+                        <div class="brand-text">
+                            <h1>CleanHome</h1>
+                            <p>Sua casa impecável</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulário de Login -->
+                <form id="login-form" class="auth-form active">
+                    <div class="form-group">
+                        <div class="input-container">
+                            <input type="email" id="login-email" required>
+                            <label for="login-email">E-mail</label>
+                            <div class="input-icon">📧</div>
+                        </div>
+                        <div class="input-hint">Digite um e-mail válido (exemplo@dominio.com)</div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-container">
+                            <input type="password" id="login-password" required>
+                            <label for="login-password">Senha</label>
+                            <div class="input-icon">🔒</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-container">
+                            <select id="login-type" required>
+                                <option value="">Tipo de Usuário</option>
+                                <option value="client">Cliente</option>
+                                <option value="provider">Prestador de Serviço</option>
+                            </select>
+                            <div class="input-icon">👥</div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <span>Entrar na Plataforma</span>
+                        <div class="btn-shine"></div>
+                    </button>
+
+                    <div class="auth-switch">
+                        <p>Não tem conta? 
+                            <a href="#" id="show-register-client">Cadastre-se como Cliente</a> ou 
+                            <a href="#" id="show-register-provider">Prestador</a>
+                        </p>
+                    </div>
+                </form>
+
+                <!-- Formulário de Registro Cliente -->
+                <form id="register-form-client" class="auth-form">
+                    <h3 class="form-title">Cadastro - Cliente</h3>
+                    <div class="form-group">
+                        <div class="input-container">
+                            <input type="text" id="register-name-client" required minlength="2">
+                            <label for="register-name-client">Nome completo</label>
+                            <div class="input-icon">👤</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-container">
+                            <input type="email" id="register-email-client" required>
+                            <label for="register-email-client">E-mail</label>
+                            <div class="input-icon">📧</div>
+                        </div>
+                        <div class="input-hint">Digite um e-mail válido (exemplo@dominio.com)</div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-container">
+                            <input type="tel" id="register-phone-client" required>
+                            <label for="register-phone-client">Telefone</label>
+                            <div class="input-icon">📱</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-container">
+                            <input type="password" id="register-password-client" required minlength="6">
+                            <label for="register-password-client">Senha</label>
+                            <div class="input-icon">🔑</div>
+                        </div>
+                        <div class="input-hint">Mínimo 6 caracteres</div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <span>Criar Conta de Cliente</span>
+                        <div class="btn-shine"></div>
+                    </button>
+
+                    <div class="auth-switch">
+                        <p>Já tem conta? <a href="#" id="show-login-from-client">Fazer login</a></p>
+                    </div>
+                </form>
+
+                <!-- Formulário de Registro Prestador -->
+                <form id="register-form-provider" class="auth-form">
+                    <h3 class="form-title">Cadastro - Prestador</h3>
+                    <div class="form-group">
+                        <div class="input-container">
+                            <input type="text" id="register-name-provider" required minlength="2">
+                            <label for="register-name-provider">Nome completo</label>
+                            <div class="input-icon">👤</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-container">
+                            <input type="email" id="register-email-provider" required>
+                            <label for="register-email-provider">E-mail</label>
+                            <div class="input-icon">📧</div>
+                        </div>
+                        <div class="input-hint">Digite um e-mail válido (exemplo@dominio.com)</div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-container">
+                            <input type="tel" id="register-phone-provider" required>
+                            <label for="register-phone-provider">Telefone</label>
+                            <div class="input-icon">📱</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-container">
+                            <select id="register-service-provider" required>
+                                <option value="">Selecione o serviço</option>
+                                <option value="Limpeza Residencial">Limpeza Residencial</option>
+                                <option value="Limpeza de Tapetes">Limpeza de Tapetes</option>
+                                <option value="Jardineiro">Jardineiro</option>
+                                <option value="Encanador">Encanador</option>
+                                <option value="Eletricista">Eletricista</option>
+                                <option value="Lavagem de Janelas">Lavagem de Janelas</option>
+                            </select>
+                            <div class="input-icon">🔧</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-container">
+                            <textarea id="register-bio-provider" rows="3" placeholder="Descreva sua experiência e qualificações..." required></textarea>
+                            <label for="register-bio-provider">Biografia Profissional</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-container">
+                            <input type="password" id="register-password-provider" required minlength="6">
+                            <label for="register-password-provider">Senha</label>
+                            <div class="input-icon">🔑</div>
+                        </div>
+                        <div class="input-hint">Mínimo 6 caracteres</div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <span>Criar Conta de Prestador</span>
+                        <div class="btn-shine"></div>
+                    </button>
+
+                    <div class="auth-switch">
+                        <p>Já tem conta? <a href="#" id="show-login-from-provider">Fazer login</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Aplicação Principal - Cliente -->
+    <div id="main-app-client" class="main-app">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">
+                        <div class="logo-icon">🏠</div>
+                    </div>
+                    <div class="brand">
+                        <h1>CleanHome</h1>
+                        <span class="tagline">Excelência doméstica</span>
+                    </div>
+                </div>
+
+                <nav class="main-nav">
+                    <a href="#" class="nav-link active" data-section="services">
+                        <span class="nav-icon">🔧</span>
+                        Serviços
+                    </a>
+                    <a href="#" class="nav-link" data-section="schedule">
+                        <span class="nav-icon">📅</span>
+                        Agendar
+                    </a>
+                    <a href="#" class="nav-link" data-section="history">
+                        <span class="nav-icon">📋</span>
+                        Histórico
+                    </a>
+                    <a href="#" class="nav-link" data-section="ratings">
+                        <span class="nav-icon">⭐</span>
+                        Avaliações
+                    </a>
+                    <a href="#" class="nav-link" data-section="profile">
+                        <span class="nav-icon">👤</span>
+                        Perfil
+                    </a>
+                    <a href="#" class="nav-link" data-section="about">
+                        <span class="nav-icon">🏢</span>
+                        Sobre
+                    </a>
+                    <a href="#" class="nav-link logout" id="logout-btn-client">
+                        <span class="nav-icon">🚪</span>
+                        Sair
+                    </a>
+                </nav>
+
+                <div class="mobile-menu-btn" id="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <!-- Seção Serviços -->
+            <section id="services" class="content-section active">
+                <div class="section-header">
+                    <h2>Nossos Serviços Premium</h2>
+                    <p>Descubra a excelência em serviços domésticos</p>
+                </div>
+
+                <!-- Filtros e Busca -->
+                <div class="filters-section">
+                    <div class="search-box">
+                        <div class="input-container">
+                            <input type="text" id="service-search" placeholder="Buscar serviços...">
+                            <div class="input-icon">🔍</div>
+                        </div>
+                    </div>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">Todos</button>
+                        <button class="filter-btn" data-filter="Limpeza">Limpeza</button>
+                        <button class="filter-btn" data-filter="Manutenção">Manutenção</button>
+                    </div>
+                </div>
+
+                <div class="services-grid" id="services-grid">
+                    <!-- Serviços carregados via JavaScript -->
+                </div>
+            </section>
+
+            <!-- Seção Agendamento -->
+            <section id="schedule" class="content-section">
+                <div class="section-header">
+                    <h2>Agendar Serviço</h2>
+                    <p>Preencha os dados para agendar seu serviço</p>
+                </div>
+                <div class="schedule-card">
+                    <form id="schedule-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Serviço</label>
+                                <select id="service-select" required>
+                                    <option value="">Selecione um serviço</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Data</label>
+                                <input type="date" id="schedule-date" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Horário</label>
+                            <select id="schedule-time" required>
+                                <option value="">Selecione horário</option>
+                                <option value="08:00">08:00</option>
+                                <option value="09:00">09:00</option>
+                                <option value="10:00">10:00</option>
+                                <option value="11:00">11:00</option>
+                                <option value="13:00">13:00</option>
+                                <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Endereço</label>
+                            <textarea id="client-address" rows="3" required placeholder="Informe o endereço completo"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Observações (opcional)</label>
+                            <textarea id="special-requests" rows="2" placeholder="Alguma observação especial..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <span>Agendar Serviço</span>
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Seção Histórico -->
+            <section id="history" class="content-section">
+                <div class="section-header">
+                    <h2>Histórico de Serviços</h2>
+                    <p>Acompanhe todos os seus agendamentos</p>
+                </div>
+                <div class="history-card">
+                    <div class="table-container">
+                        <table id="history-table">
+                            <thead>
+                                <tr>
+                                    <th>Serviço</th>
+                                    <th>Data</th>
+                                    <th>Status</th>
+                                    <th>Avaliação</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Histórico carregado via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção Avaliações -->
+            <section id="ratings" class="content-section">
+                <div class="section-header">
+                    <h2>Avaliações de Serviços</h2>
+                    <p>Veja as avaliações dos serviços realizados</p>
+                </div>
+                <div class="ratings-card">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value" id="average-rating">0.0</div>
+                            <div class="stat-label">Avaliação Média</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="total-ratings">0</div>
+                            <div class="stat-label">Total Avaliações</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="completed-services">0</div>
+                            <div class="stat-label">Serviços Concluídos</div>
+                        </div>
+                    </div>
+                    <div id="ratings-container">
+                        <!-- Avaliações carregadas via JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção Perfil -->
+            <section id="profile" class="content-section">
+                <div class="section-header">
+                    <h2>Meu Perfil</h2>
+                    <p>Gerencie suas informações pessoais</p>
+                </div>
+                <div class="profile-container">
+                    <div class="profile-sidebar">
+                        <div class="profile-card">
+                            <div class="avatar-section">
+                                <div class="avatar-upload">
+                                    <div class="avatar-preview" id="avatar-preview-client">
+                                        <img id="avatar-image-client" style="display: none;">
+                                        <div class="avatar-placeholder" id="avatar-placeholder-client">
+                                            <span>👤</span>
+                                        </div>
+                                    </div>
+                                    <input type="file" id="avatar-input-client" accept="image/*" style="display: none;">
+                                    <button type="button" class="btn btn-secondary" id="upload-btn-client">
+                                        Alterar Foto
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="profile-info">
+                                <h3 id="profile-name-client">Usuário</h3>
+                                <p id="profile-email-client">usuario@email.com</p>
+                                <div class="profile-stats">
+                                    <div class="stat">
+                                        <strong id="profile-services-client">0</strong>
+                                        <span>Serviços</span>
+                                    </div>
+                                    <div class="stat">
+                                        <strong id="profile-rating-client">0.0</strong>
+                                        <span>Avaliação</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-content">
+                        <div class="profile-tabs">
+                            <button class="tab-btn active" data-tab="info">Informações</button>
+                            <button class="tab-btn" data-tab="security">Segurança</button>
+                            <button class="tab-btn" data-tab="preferences">Preferências</button>
+                        </div>
+
+                        <div class="tab-content">
+                            <!-- Informações Pessoais -->
+                            <div class="tab-pane active" id="info-tab">
+                                <form id="info-form-client">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label>Nome Completo</label>
+                                            <input type="text" id="edit-name-client" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Telefone</label>
+                                            <input type="tel" id="edit-phone-client" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>E-mail</label>
+                                        <input type="email" id="edit-email-client" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Endereço</label>
+                                        <textarea id="edit-address-client" rows="3"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                                </form>
+                            </div>
+
+                            <!-- Segurança -->
+                            <div class="tab-pane" id="security-tab">
+                                <form id="security-form-client">
+                                    <div class="form-group">
+                                        <label>Senha Atual</label>
+                                        <input type="password" id="current-password-client" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Nova Senha</label>
+                                        <input type="password" id="new-password-client" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Confirmar Senha</label>
+                                        <input type="password" id="confirm-password-client" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Alterar Senha</button>
+                                </form>
+                            </div>
+
+                            <!-- Preferências -->
+                            <div class="tab-pane" id="preferences-tab">
+                                <form id="preferences-form-client">
+                                    <div class="form-group">
+                                        <label>Notificações</label>
+                                        <div class="checkbox-group">
+                                            <label>
+                                                <input type="checkbox" id="notify-email-client" checked>
+                                                Notificações por E-mail
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" id="notify-sms-client" checked>
+                                                Notificações por SMS
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Horário Preferencial</label>
+                                        <select id="preferred-time-client">
+                                            <option value="morning">Manhã</option>
+                                            <option value="afternoon" selected>Tarde</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Salvar Preferências</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção Sobre -->
+            <section id="about" class="content-section">
+                <div class="section-header">
+                    <h2>Sobre Nós</h2>
+                    <p>Conheça mais sobre a CleanHome</p>
+                </div>
+                <div class="about-content">
+                    <div class="about-grid">
+                        <div class="about-card">
+                            <h3>🏆 Nossa Missão</h3>
+                            <p>Conectar clientes a profissionais qualificados com praticidade e confiança.</p>
+                        </div>
+                        <div class="about-card">
+                            <h3>👥 Nossa Equipe</h3>
+                            <p>Profissionais selecionados e treinados para excelência em serviços.</p>
+                        </div>
+                        <div class="about-card">
+                            <h3>🔒 Compromisso</h3>
+                            <p>Segurança, pontualidade e satisfação garantidas em todos os serviços.</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-section">
+                        <div class="contact-card">
+                            <h3>📞 Contato</h3>
+                            <div class="contact-info">
+                                <p><strong>E-mail:</strong> cleanhomefaleconosco@gmail.com</p>
+                                <p><strong>Telefone:</strong> (81) 9999-9999</p>
+                                <p><strong>Horário:</strong> Seg-Sex: 8h-18h</p>
+                            </div>
+                        </div>
+                        
+                        <div class="cities-section">
+                            <h4>🏙️ Atendemos na Região Metropolitana do Recife</h4>
+                            <div class="cities-grid">
+                                <div class="city-card">Recife</div>
+                                <div class="city-card">Olinda</div>
+                                <div class="city-card">Jaboatão dos Guararapes</div>
+                                <div class="city-card">Paulista</div>
+                                <div class="city-card">Camaragibe</div>
+                                <div class="city-card">São Lourenço da Mata</div>
+                                <div class="city-card">Cabo de Santo Agostinho</div>
+                                <div class="city-card">Igarassu</div>
+                                <div class="city-card">Abreu e Lima</div>
+                                <div class="city-card">Moreno</div>
+                                <div class="city-card">Itapissuma</div>
+                                <div class="city-card">Ilha de Itamaracá</div>
+                                <div class="city-card">Ipojuca</div>
+                                <div class="city-card">Araçoiaba</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Modal de Avaliação -->
+        <div id="rating-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Avaliar Serviço</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <form id="rating-form">
+                    <input type="hidden" id="rating-service-id">
+                    <div class="rating-stars-large">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Comentário (opcional)</label>
+                        <textarea id="rating-comment" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar Avaliação</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Aplicação Principal - Prestador -->
+    <div id="main-app-provider" class="main-app">
+        <!-- Header Prestador -->
+        <header class="main-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">
+                        <div class="logo-icon">🔧</div>
+                    </div>
+                    <div class="brand">
+                        <h1>CleanHome Pro</h1>
+                        <span class="tagline">Painel do Prestador</span>
+                    </div>
+                </div>
+
+                <nav class="main-nav">
+                    <a href="#" class="nav-link active" data-section="provider-dashboard">
+                        <span class="nav-icon">📊</span>
+                        Dashboard
+                    </a>
+                    <a href="#" class="nav-link" data-section="provider-schedule">
+                        <span class="nav-icon">📅</span>
+                        Agenda
+                    </a>
+                    <a href="#" class="nav-link" data-section="provider-services">
+                        <span class="nav-icon">🔧</span>
+                        Meus Serviços
+                    </a>
+                    <a href="#" class="nav-link" data-section="provider-ratings">
+                        <span class="nav-icon">⭐</span>
+                        Avaliações
+                    </a>
+                    <a href="#" class="nav-link" data-section="provider-profile">
+                        <span class="nav-icon">👤</span>
+                        Perfil
+                    </a>
+                    <a href="#" class="nav-link logout" id="logout-btn-provider">
+                        <span class="nav-icon">🚪</span>
+                        Sair
+                    </a>
+                </nav>
+
+                <div class="mobile-menu-btn" id="mobile-menu-btn-provider">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Conteúdo Principal Prestador -->
+        <main class="main-content">
+            <!-- Dashboard Prestador -->
+            <section id="provider-dashboard" class="content-section active">
+                <div class="section-header">
+                    <h2>Meu Dashboard</h2>
+                    <p>Visão geral dos seus serviços e desempenho</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="provider-total-services">0</div>
+                        <div class="stat-label">Total de Serviços</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="provider-pending-services">0</div>
+                        <div class="stat-label">Pendentes</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="provider-rating">0.0</div>
+                        <div class="stat-label">Avaliação Média</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="provider-earnings">R$ 0</div>
+                        <div class="stat-label">Ganhos Totais</div>
+                    </div>
+                </div>
+
+                <div class="schedule-card">
+                    <h3>Próximos Agendamentos</h3>
+                    <div id="provider-upcoming-appointments">
+                        <!-- Agendamentos carregados via JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Agenda Prestador -->
+            <section id="provider-schedule" class="content-section">
+                <div class="section-header">
+                    <h2>Minha Agenda</h2>
+                    <p>Gerencie seus horários e disponibilidade</p>
+                </div>
+                <div class="schedule-card">
+                    <div class="table-container">
+                        <table id="provider-schedule-table">
+                            <thead>
+                                <tr>
+                                    <th>Cliente</th>
+                                    <th>Serviço</th>
+                                    <th>Data/Hora</th>
+                                    <th>Endereço</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Agenda carregada via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Serviços Prestador -->
+            <section id="provider-services" class="content-section">
+                <div class="section-header">
+                    <h2>Meus Serviços</h2>
+                    <p>Gerencie os serviços que você oferece</p>
+                </div>
+                <div class="services-grid" id="provider-services-grid">
+                    <!-- Serviços do prestador carregados via JavaScript -->
+                </div>
+            </section>
+
+            <!-- Avaliações Prestador -->
+            <section id="provider-ratings" class="content-section">
+                <div class="section-header">
+                    <h2>Minhas Avaliações</h2>
+                    <p>Veja o feedback dos seus clientes</p>
+                </div>
+                <div class="ratings-card">
+                    <div id="provider-ratings-container">
+                        <!-- Avaliações carregadas via JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Perfil Prestador -->
+            <section id="provider-profile" class="content-section">
+                <div class="section-header">
+                    <h2>Meu Perfil Profissional</h2>
+                    <p>Gerencie suas informações profissionais</p>
+                </div>
+                <div class="profile-container">
+                    <div class="profile-sidebar">
+                        <div class="profile-card">
+                            <div class="avatar-section">
+                                <div class="avatar-upload">
+                                    <div class="avatar-preview" id="avatar-preview-provider">
+                                        <img id="avatar-image-provider" style="display: none;">
+                                        <div class="avatar-placeholder" id="avatar-placeholder-provider">
+                                            <span>👤</span>
+                                        </div>
+                                    </div>
+                                    <input type="file" id="avatar-input-provider" accept="image/*" style="display: none;">
+                                    <button type="button" class="btn btn-secondary" id="upload-btn-provider">
+                                        Alterar Foto
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="profile-info">
+                                <h3 id="profile-name-provider">Prestador</h3>
+                                <p id="profile-service-provider">Serviço</p>
+                                <p id="profile-email-provider">email@provedor.com</p>
+                                <div class="profile-stats">
+                                    <div class="stat">
+                                        <strong id="profile-total-services">0</strong>
+                                        <span>Serviços</span>
+                                    </div>
+                                    <div class="stat">
+                                        <strong id="profile-avg-rating">0.0</strong>
+                                        <span>Avaliação</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-content">
+                        <div class="profile-tabs">
+                            <button class="tab-btn active" data-tab="provider-info">Informações</button>
+                            <button class="tab-btn" data-tab="provider-security">Segurança</button>
+                            <button class="tab-btn" data-tab="provider-availability">Disponibilidade</button>
+                        </div>
+
+                        <div class="tab-content">
+                            <!-- Informações Profissionais -->
+                            <div class="tab-pane active" id="provider-info-tab">
+                                <form id="provider-info-form">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label>Nome Completo</label>
+                                            <input type="text" id="edit-name-provider" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Telefone</label>
+                                            <input type="tel" id="edit-phone-provider" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>E-mail</label>
+                                        <input type="email" id="edit-email-provider" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Serviço Principal</label>
+                                        <select id="edit-service-provider" required>
+                                            <option value="Limpeza Residencial">Limpeza Residencial</option>
+                                            <option value="Limpeza de Tapetes">Limpeza de Tapetes</option>
+                                            <option value="Jardineiro">Jardineiro</option>
+                                            <option value="Encanador">Encanador</option>
+                                            <option value="Eletricista">Eletricista</option>
+                                            <option value="Lavagem de Janelas">Lavagem de Janelas</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Biografia Profissional</label>
+                                        <textarea id="edit-bio-provider" rows="4" placeholder="Descreva sua experiência, qualificações e especialidades..."></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                                </form>
+                            </div>
+
+                            <!-- Segurança -->
+                            <div class="tab-pane" id="provider-security-tab">
+                                <form id="provider-security-form">
+                                    <div class="form-group">
+                                        <label>Senha Atual</label>
+                                        <input type="password" id="current-password-provider" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Nova Senha</label>
+                                        <input type="password" id="new-password-provider" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Confirmar Senha</label>
+                                        <input type="password" id="confirm-password-provider" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Alterar Senha</button>
+                                </form>
+                            </div>
+
+                            <!-- Disponibilidade -->
+                            <div class="tab-pane" id="provider-availability-tab">
+                                <form id="provider-availability-form">
+                                    <div class="form-group">
+                                        <label>Horários de Trabalho</label>
+                                        <div class="availability-grid">
+                                            <div class="time-slot">
+                                                <label>Manhã (08:00 - 12:00)</label>
+                                                <input type="checkbox" id="morning-availability" checked>
+                                            </div>
+                                            <div class="time-slot">
+                                                <label>Tarde (13:00 - 18:00)</label>
+                                                <input type="checkbox" id="afternoon-availability" checked>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Cidades de Atendimento</label>
+                                        <div class="cities-checkbox">
+                                            <label><input type="checkbox" name="cities" value="Recife" checked> Recife</label>
+                                            <label><input type="checkbox" name="cities" value="Olinda" checked> Olinda</label>
+                                            <label><input type="checkbox" name="cities" value="Jaboatão dos Guararapes"> Jaboatão dos Guararapes</label>
+                                            <label><input type="checkbox" name="cities" value="Paulista"> Paulista</label>
+                                            <label><input type="checkbox" name="cities" value="Camaragibe"> Camaragibe</label>
+                                            <label><input type="checkbox" name="cities" value="São Lourenço da Mata"> São Lourenço da Mata</label>
+                                            <label><input type="checkbox" name="cities" value="Cabo de Santo Agostinho"> Cabo de Santo Agostinho</label>
+                                            <label><input type="checkbox" name="cities" value="Igarassu"> Igarassu</label>
+                                            <label><input type="checkbox" name="cities" value="Abreu e Lima"> Abreu e Lima</label>
+                                            <label><input type="checkbox" name="cities" value="Moreno"> Moreno</label>
+                                            <label><input type="checkbox" name="cities" value="Itapissuma"> Itapissuma</label>
+                                            <label><input type="checkbox" name="cities" value="Ilha de Itamaracá"> Ilha de Itamaracá</label>
+                                            <label><input type="checkbox" name="cities" value="Ipojuca"> Ipojuca</label>
+                                            <label><input type="checkbox" name="cities" value="Araçoiaba"> Araçoiaba</label>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Salvar Disponibilidade</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
